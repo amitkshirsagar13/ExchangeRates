@@ -1,7 +1,22 @@
 package org.exchange.rates;
 
 /**
- * Created by Amit on 5/23/2015.
+ * <p>
+ * <b>Overview:</b>
+ * <p>
+ *
+ *
+ * <pre>
+ * Creation date: May 18, 2015
+ * @author Amit Kshirsagar
+ * @email amit.kshirsagar.13@gmail.com
+ * @version 1.0
+ * @since
+ *
+ * <p><b>Modification History:</b><p>
+ *
+ *
+ * </pre>
  */
 
 import android.content.ContentValues;
