@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/exchangeRateLayout"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
+
+    <ImageView
+            android:id="@+id/icon"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_marginLeft="5px"
+            android:layout_marginRight="20px"
+            android:layout_marginTop="5px"
+            android:layout_weight="0.1"
+            android:src="@drawable/shinigami">
+    </ImageView>
+
+
+    <TextView
+            android:id="@+id/companyName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Company"
+            android:layout_weight="2.50">
+    </TextView>
+
+    <TextView
+            android:id="@+id/rate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="rate"
+            android:layout_weight="0.50">
+    </TextView>
+
+
+</LinearLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Get location details from zip code..."
+            android:id="@+id/textViewDescription"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ZipCode"
+            android:layout_below="@id/textViewDescription"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/textViewZipCode"/>
+    <EditText
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewDescription"
+            android:layout_alignParentRight="true"
+            android:id="@+id/zipCode"
+            android:layout_toEndOf="@+id/textViewZipCode"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PopulateData"
+            android:layout_below="@id/zipCode"
+            android:id="@+id/getLocationDetails"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:onClick="getLocationDetails"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/getLocationDetails"
+            android:layout_alignParentLeft="true"
+            android:text="Country:"
+            android:id="@+id/country"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="XXXXX"
+            android:id="@+id/countryValue"
+            android:layout_below="@+id/getLocationDetails"
+            android:layout_toEndOf="@+id/country"/>
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/country"
+            android:layout_alignParentLeft="true"
+            android:text="State: "
+            android:id="@+id/state"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="XXXXX"
+            android:id="@+id/stateValue"
+            android:layout_below="@+id/country"
+            android:layout_toEndOf="@+id/state"/>
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/state"
+            android:layout_alignParentLeft="true"
+            android:text="City: "
+            android:id="@+id/city"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="XXXXX"
+            android:id="@+id/cityValue"
+            android:layout_below="@+id/state"
+            android:layout_toEndOf="@+id/city"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/city"
+            android:layout_alignParentLeft="true"
+            android:text="Lang: "
+            android:id="@+id/lang"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="XXXXX"
+            android:id="@+id/langValue"
+            android:layout_below="@+id/city"
+            android:layout_toEndOf="@+id/lang"/>
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_below="@id/lang"
+            android:layout_alignParentLeft="true"
+            android:text="Lat: "
+            android:id="@+id/lat"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="XXXXX"
+            android:id="@+id/latValue"
+            android:layout_below="@+id/lang"
+            android:layout_toEndOf="@+id/lat"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ShowExchangeRate"
+            android:layout_below="@id/lat"
+            android:id="@+id/getExchangeRate"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            android:onClick="getRatePage"/>
+</RelativeLayout>
+
