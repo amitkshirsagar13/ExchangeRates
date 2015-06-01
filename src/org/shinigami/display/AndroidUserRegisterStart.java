@@ -121,7 +121,7 @@ public class AndroidUserRegisterStart extends Activity {
 		androidUserApplicationJson.getComments().add("Starting Use for " + androidUserApplicationJson.getApplicationName());
 		androidUserApplicationJson.setUsedCount(1);
 
-		androidUser.getApplicationNames().add(androidUserApplicationJson);
+		androidUser.getApplicationNamesList().add(androidUserApplicationJson);
 		try {
 			queryUpdate.insertRecord(ShinigamiJsonDBInstance.COLLECTIONANDROIDUSERS, androidUser);
 		} catch (JsonProcessingException e) {
@@ -148,7 +148,7 @@ public class AndroidUserRegisterStart extends Activity {
 		AndroidUser androidUser = shinigamiDBHelper.getUser(getEmail(), getString(getApplicationInfo().labelRes));
 		androidUser.setUpdated(true);
 
-		for (AndroidUserApplication userApplication : androidUser.getApplicationNames()) {
+		for (AndroidUserApplication userApplication : androidUser.getApplicationNamesList()) {
 			if (userApplication.getApplicationName().equalsIgnoreCase(getString(getApplicationInfo().labelRes))) {
 				userApplication.setUsedCount(userApplication.getUsedCount() + 1);
 				if (userApplication.getLastUpdated().equalsIgnoreCase(ShinigamiDBHelper.getCurrentDate())) {
