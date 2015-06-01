@@ -103,7 +103,7 @@ public class ShinigamiDBHelper extends SQLiteOpenHelper {
 		db.insert(ApplicationUserContract.SHINIGAMIUSER
 				, null, values);
 
-		for (AndroidUserApplication userApplicationModel : userModel.getApplicationNames()) {
+		for (AndroidUserApplication userApplicationModel : userModel.getApplicationNamesList()) {
 			addAndroidUserApplication(db, userApplicationModel);
 		}
 	}
@@ -245,7 +245,7 @@ public class ShinigamiDBHelper extends SQLiteOpenHelper {
 					cursor1.close();
 				}
 
-				androidUser.getApplicationNames().add(userApplication);
+				androidUser.getApplicationNamesList().add(userApplication);
 			}
 			// close the cursor
 			cursor.close();
