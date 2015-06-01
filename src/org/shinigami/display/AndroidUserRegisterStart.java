@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.EditText;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.exchange.rates.R;
 import org.exchange.rates.display.ExchangeRateDisplay;
@@ -153,6 +154,20 @@ public class AndroidUserRegisterStart extends Activity {
             }
         }
         return email;
+    }
+
+    public void updateComment(View view){
+        EditText comment = (EditText)findViewById(R.id.comment);
+        String commentStr = comment.getText().toString();
+
+        ShinigamiDBHelper shinigamiDBHelper = new ShinigamiDBHelper(this);
+
+        AndroidUserApplication userApplication = new AndroidUserApplication();
+
+        userApplication.setApplicationName(getString(getApplicationInfo().labelRes));
+        userApplication.getComments().add(commentStr);
+
+        shinigamiDBHelper.addAndroidUserApplicationComment(shinigamiDBHelper.getWritableDatabase(), userApplication);
     }
 
     public void updateUseInstance() {

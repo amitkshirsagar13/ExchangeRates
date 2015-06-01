@@ -22,5 +22,31 @@
             android:layout_alignParentRight="true"
             android:layout_gravity="center_horizontal"
             android:onClick="getRatePage"/>
+
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Enter your comments here..."
+			android:id="@+id/commentTxt" android:layout_below="@+id/getExchangeRate"
+			android:layout_alignParentLeft="true" android:layout_alignRight="@+id/comment"/>
+
+
+	<EditText
+            android:layout_width="wrap_content"
+            android:lines="15"
+            android:minLines="6"
+            android:gravity="top|left"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="50"
+            android:layout_below="@+id/commentTxt"
+            android:id="@+id/comment"
+            android:layout_centerVertical="true" android:layout_alignParentRight="true"/>
+	<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Send Comment"
+			android:id="@+id/button" android:layout_below="@+id/comment" android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
 
