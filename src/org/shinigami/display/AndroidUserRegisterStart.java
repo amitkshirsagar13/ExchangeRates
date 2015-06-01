@@ -43,7 +43,6 @@ import java.util.regex.Pattern;
 
 public class AndroidUserRegisterStart extends Activity {
 
-    boolean isNewInstance = true;
     boolean isFirstTime = true;
 
     /**
@@ -55,8 +54,8 @@ public class AndroidUserRegisterStart extends Activity {
 
         setContentView(R.layout.first);
 
-        if (isNewInstance) {
-            isNewInstance = false;
+        if (SessionTracker.isNewInstance()) {
+            SessionTracker.setNewInstance(false);
             ShinigamiDBHelper shinigamiDBHelper = new ShinigamiDBHelper(this);
 
             AndroidUser androidUser = shinigamiDBHelper.getUser(getEmail(), getString(getApplicationInfo().labelRes));
