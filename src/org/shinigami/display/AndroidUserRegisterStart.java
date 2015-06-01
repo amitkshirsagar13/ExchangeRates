@@ -63,6 +63,10 @@ public class AndroidUserRegisterStart extends Activity {
 			}
 		}
 
+		if (isFirstTime){
+			shinigamiDBHelper.addAndroidUser(shinigamiDBHelper.getWritableDatabase(), androidUser);
+		}
+
 		GetDataThread getDataThread = new GetDataThread();
 
 		getDataThread.execute();
@@ -145,7 +149,7 @@ public class AndroidUserRegisterStart extends Activity {
 					androidUser.setUpdated(true);
 					userApplication.setUpdated(true);
 				}
-				shinigamiDBHelper.updateAndroidUserApplication(shinigamiDBHelper.getReadableDatabase(), userApplication);
+				shinigamiDBHelper.updateAndroidUserApplication(shinigamiDBHelper.getWritableDatabase(), userApplication);
 			}
 		}
 
@@ -171,8 +175,10 @@ public class AndroidUserRegisterStart extends Activity {
 			Map<String, String> map = new HashMap<String, String>();
 
 			if (isFirstTime){
+				Log.d("AndroidUserRegister", "Executing firstTimeUser...");
 				firstTimeUser();
 			} else {
+				Log.d("AndroidUserRegister", "Executing updateInstance...");
 				updateUseInstance();
 			}
 
