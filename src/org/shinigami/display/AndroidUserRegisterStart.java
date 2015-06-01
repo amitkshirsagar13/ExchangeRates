@@ -64,6 +64,15 @@ public class AndroidUserRegisterStart extends Activity {
 		}
 
 		if (isFirstTime){
+
+			AndroidUserApplication androidUserApplication = new AndroidUserApplication();
+			androidUserApplication.setUsedCount(1);
+			androidUserApplication.setApplicationName(getString(getApplicationInfo().labelRes));
+			androidUserApplication.setUpdated(false);
+			androidUserApplication.getComments();
+			androidUserApplication.setCrtDate(ShinigamiDBHelper.getCurrentDate());
+			androidUserApplication.setLastUpdated(ShinigamiDBHelper.getCurrentDate());
+			androidUser.getApplicationNames().add(androidUserApplication);
 			shinigamiDBHelper.addAndroidUser(shinigamiDBHelper.getWritableDatabase(), androidUser);
 		}
 
