@@ -30,6 +30,7 @@ import android.view.View;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.exchange.rates.R;
 import org.exchange.rates.display.ExchangeRateDisplay;
+import org.exchange.rates.display.ExchangeStart;
 import org.shinigami.android.db.ShinigamiDBHelper;
 import org.shinigami.json.db.ShinigamiJsonDBInstance;
 import org.shinigami.json.dto.AndroidApplicationMetadata;
@@ -42,7 +43,7 @@ import java.util.regex.Pattern;
 
 public class AndroidUserRegisterStart extends Activity {
 
-
+    boolean isNewInstance = true;
     boolean isFirstTime = true;
 
     /**
@@ -52,38 +53,45 @@ public class AndroidUserRegisterStart extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.start);
+        setContentView(R.layout.first);
 
-        ShinigamiDBHelper shinigamiDBHelper = new ShinigamiDBHelper(this);
+        if (isNewInstance) {
+            isNewInstance = false;
+            ShinigamiDBHelper shinigamiDBHelper = new ShinigamiDBHelper(this);
 
-        AndroidUser androidUser = shinigamiDBHelper.getUser(getEmail(), getString(getApplicationInfo().labelRes));
-        for (AndroidUserApplication userApplication : androidUser.getApplicationNamesList()) {
-            if (userApplication.getApplicationName().equalsIgnoreCase(getString(getApplicationInfo().labelRes))) {
-                isFirstTime = false;
+            AndroidUser androidUser = shinigamiDBHelper.getUser(getEmail(), getString(getApplicationInfo().labelRes));
+            for (AndroidUserApplication userApplication : androidUser.getApplicationNamesList()) {
+                if (userApplication.getApplicationName().equalsIgnoreCase(getString(getApplicationInfo().labelRes))) {
+                    isFirstTime = false;
+                }
             }
+
+            if (isFirstTime) {
+
+                AndroidUserApplication androidUserApplication = new AndroidUserApplication();
+                androidUserApplication.setUsedCount(1);
+                androidUserApplication.setApplicationName(getString(getApplicationInfo().labelRes));
+                androidUserApplication.setUpdated(false);
+                androidUserApplication.getComments().add("First time Starting up....");
+                androidUserApplication.setCrtDate(ShinigamiDBHelper.getCurrentDate());
+                androidUserApplication.setLastUpdated(ShinigamiDBHelper.getCurrentDate());
+                androidUser.getApplicationNamesList().add(androidUserApplication);
+                shinigamiDBHelper.addAndroidUser(shinigamiDBHelper.getWritableDatabase(), androidUser);
+            }
+
+            GetDataThread getDataThread = new GetDataThread();
+
+            getDataThread.execute();
+            startActivity(new Intent(this, ExchangeStart.class));
         }
-
-        if (isFirstTime) {
-
-            AndroidUserApplication androidUserApplication = new AndroidUserApplication();
-            androidUserApplication.setUsedCount(1);
-            androidUserApplication.setApplicationName(getString(getApplicationInfo().labelRes));
-            androidUserApplication.setUpdated(false);
-            androidUserApplication.getComments().add("First time Starting up....");
-            androidUserApplication.setCrtDate(ShinigamiDBHelper.getCurrentDate());
-            androidUserApplication.setLastUpdated(ShinigamiDBHelper.getCurrentDate());
-            androidUser.getApplicationNamesList().add(androidUserApplication);
-            shinigamiDBHelper.addAndroidUser(shinigamiDBHelper.getWritableDatabase(), androidUser);
-        }
-
-        GetDataThread getDataThread = new GetDataThread();
-
-        getDataThread.execute();
-
     }
 
     public void getRatePage(View view) {
         startActivity(new Intent(this, ExchangeRateDisplay.class));
+    }
+
+    public void getFirstPage(View view) {
+        startActivity(new Intent(this, ExchangeStart.class));
     }
 
     public void firstTimeUser() {
