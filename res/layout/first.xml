@@ -29,8 +29,6 @@
 			android:text="Enter your comments here..."
 			android:id="@+id/commentTxt" android:layout_below="@+id/getExchangeRate"
 			android:layout_alignParentLeft="true" android:layout_alignRight="@+id/comment"/>
-
-
 	<EditText
             android:layout_width="wrap_content"
             android:lines="15"
@@ -46,7 +44,13 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="Send Comment"
-			android:id="@+id/button" android:layout_below="@+id/comment" android:layout_centerHorizontal="true"/>
+			android:onClick="updateComment"
+			android:id="@+id/addComments" android:layout_below="@+id/comment" android:layout_centerHorizontal="true"/>
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Comments Confirmation: "
+			android:id="@+id/commentsConfirm" android:layout_below="@+id/addComments" android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>
 

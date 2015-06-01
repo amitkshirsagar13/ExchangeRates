@@ -28,6 +28,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.exchange.rates.R;
 import org.exchange.rates.display.ExchangeRateDisplay;
@@ -168,6 +169,9 @@ public class AndroidUserRegisterStart extends Activity {
         userApplication.getComments().add(commentStr);
 
         shinigamiDBHelper.addAndroidUserApplicationComment(shinigamiDBHelper.getWritableDatabase(), userApplication);
+
+        TextView commentConfirm = (TextView)findViewById(R.id.commentsConfirm);
+        commentConfirm.append("Successfully updated comment.");
     }
 
     public void updateUseInstance() {
