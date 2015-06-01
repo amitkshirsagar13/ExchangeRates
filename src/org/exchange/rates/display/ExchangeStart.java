@@ -1,4 +1,4 @@
-package org.exchange.rates;
+package org.exchange.rates.display;
 
 /**
  * <p>
@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import org.exchange.rates.R;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;

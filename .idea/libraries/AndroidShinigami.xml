@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="AndroidShinigami">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/AndroidShinigami.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/AndroidShinigami.jar!/" />
+    </SOURCES>
+  </library>
+</component>

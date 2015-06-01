@@ -1,4 +1,4 @@
-package org.exchange.rates;
+package org.exchange.rates.exchangerate.db;
 
 /**
  * <p>
@@ -32,7 +32,7 @@ import org.getrate.inr.RateModel;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.exchange.rates.ExchangeContract.Columns.*;
+import static org.exchange.rates.exchangerate.db.ExchangeContract.Columns.*;
 
 
 public class ExchangeDBHelper extends SQLiteOpenHelper {

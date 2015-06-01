@@ -18,5 +18,7 @@
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="library" name="mongodb-driver-3.0.2" level="project" />
+    <orderEntry type="library" name="AndroidShinigami" level="project" />
   </component>
 </module>

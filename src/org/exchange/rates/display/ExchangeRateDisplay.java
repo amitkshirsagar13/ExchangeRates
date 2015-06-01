@@ -1,4 +1,4 @@
-package org.exchange.rates;
+package org.exchange.rates.display;
 
 /**
  * <p>
@@ -27,6 +27,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import org.exchange.rates.exchangerate.db.ExchangeContract;
+import org.exchange.rates.exchangerate.db.ExchangeDBHelper;
+import org.exchange.rates.adapter.ExchangeViewListAdapter;
+import org.exchange.rates.R;
 import org.getrate.inr.GetIndiaExchangeRate;
 import org.getrate.inr.RateList;
 import org.getrate.inr.RateModel;

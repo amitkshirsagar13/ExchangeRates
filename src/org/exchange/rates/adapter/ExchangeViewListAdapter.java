@@ -1,4 +1,4 @@
-package org.exchange.rates;
+package org.exchange.rates.adapter;
 
 /**
  * <p>
@@ -26,12 +26,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import org.exchange.rates.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.exchange.rates.ExchangeContract.Columns.COMPANY;
-import static org.exchange.rates.ExchangeContract.Columns.RATE;
+import static org.exchange.rates.exchangerate.db.ExchangeContract.Columns.COMPANY;
+import static org.exchange.rates.exchangerate.db.ExchangeContract.Columns.RATE;
 
 public class ExchangeViewListAdapter extends BaseAdapter {
     public ArrayList<HashMap> list;
