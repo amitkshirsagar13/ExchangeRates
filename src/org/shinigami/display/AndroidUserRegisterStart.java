@@ -57,7 +57,7 @@ public class AndroidUserRegisterStart extends Activity {
 		ShinigamiDBHelper shinigamiDBHelper = new ShinigamiDBHelper(this);
 
 		AndroidUser androidUser = shinigamiDBHelper.getUser(getEmail(), getString(getApplicationInfo().labelRes));
-		for (AndroidUserApplication userApplication : androidUser.getApplicationNames()){
+		for (AndroidUserApplication userApplication : androidUser.getApplicationNamesList()){
 			if (userApplication.getApplicationName().equalsIgnoreCase(getString(getApplicationInfo().labelRes))){
 				isFirstTime = false;
 			}
@@ -72,7 +72,7 @@ public class AndroidUserRegisterStart extends Activity {
 			androidUserApplication.getComments();
 			androidUserApplication.setCrtDate(ShinigamiDBHelper.getCurrentDate());
 			androidUserApplication.setLastUpdated(ShinigamiDBHelper.getCurrentDate());
-			androidUser.getApplicationNames().add(androidUserApplication);
+			androidUser.getApplicationNamesList().add(androidUserApplication);
 			shinigamiDBHelper.addAndroidUser(shinigamiDBHelper.getWritableDatabase(), androidUser);
 		}
 
