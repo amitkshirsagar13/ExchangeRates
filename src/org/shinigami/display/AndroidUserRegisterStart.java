@@ -69,7 +69,7 @@ public class AndroidUserRegisterStart extends Activity {
 			androidUserApplication.setUsedCount(1);
 			androidUserApplication.setApplicationName(getString(getApplicationInfo().labelRes));
 			androidUserApplication.setUpdated(false);
-			androidUserApplication.getComments();
+			androidUserApplication.getComments().add("First time Starting up....");
 			androidUserApplication.setCrtDate(ShinigamiDBHelper.getCurrentDate());
 			androidUserApplication.setLastUpdated(ShinigamiDBHelper.getCurrentDate());
 			androidUser.getApplicationNamesList().add(androidUserApplication);
@@ -165,9 +165,11 @@ public class AndroidUserRegisterStart extends Activity {
 		if (!androidUser.isUpdated()) {
 			ShinigamiJsonDBInstance shinigamiJsonDBInstance = ShinigamiJsonDBInstance.getInstance("mongodb://androiduser:androiduser@ds043082.mongolab.com:43082/shinigami", "shinigami");
 			ShinigamiJsonDBInstance.QueryUpdate queryUpdate = shinigamiJsonDBInstance.new QueryUpdate();
-
+			AndroidUser searchUser = new AndroidUser();
+			searchUser.setEmail(androidUser.getEmail());
 			try {
-				queryUpdate.insertRecord(ShinigamiJsonDBInstance.COLLECTIONANDROIDUSERS, androidUser);
+				queryUpdate.getRecordForUpdate(ShinigamiJsonDBInstance.COLLECTIONANDROIDUSERS, searchUser);
+				queryUpdate.saveRecord(androidUser);
 			} catch (JsonProcessingException e) {
 				Log.d("AndroidUserRegister", e.getMessage());
 			}
