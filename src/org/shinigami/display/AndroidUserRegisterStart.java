@@ -171,6 +171,7 @@ public class AndroidUserRegisterStart extends Activity {
         shinigamiDBHelper.addAndroidUserApplicationComment(shinigamiDBHelper.getWritableDatabase(), userApplication);
 
         TextView commentConfirm = (TextView)findViewById(R.id.commentsConfirm);
+        comment.setText("",TextView.BufferType.EDITABLE);
         commentConfirm.append("Successfully updated comment.");
     }
 
