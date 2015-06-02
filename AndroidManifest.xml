@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application android:label="@string/app_name" android:icon="@drawable/shinigami">
-        <activity android:name="org.shinigami.display.AndroidUserRegisterStart"
+        <activity android:name="org.shinigami.android.display.AndroidUserRegisterStart"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
